@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services — Chiro Scot</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #1F2937;
+        }
+        
+        header {
+            background: #FFFFFF;
+            border-bottom: 1px solid #E5E7EB;
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: #1F2937;
+        }
+        
+        .logo svg {
+            width: 40px;
+            height: 40px;
+        }
+        
+        .logo-text {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+        
+        nav {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        nav a {
+            color: #1F2937;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+        
+        nav a:hover {
+            color: #4F46E5;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, rgba(31, 41, 55, 0.6) 0%, rgba(31, 41, 55, 0.4) 100%), url('services_stream.jpg') center/cover;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #FFFFFF;
+        }
+        
+        .hero-content h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+        
+        .section h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        
+        .price-card {
+            background: #F9FAFB;
+            border: 1px solid #E5E7EB;
+            border-radius: 8px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+        }
+        
+        .price-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #4F46E5;
+            margin-bottom: 1.5rem;
+        }
+        
+        .price-card p {
+            color: #6B7280;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        .price-card ul {
+            list-style: none;
+            margin-bottom: 2rem;
+            text-align: left;
+            color: #6B7280;
+            font-size: 0.9rem;
+        }
+        
+        .price-card ul li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #E5E7EB;
+        }
+        
+        .price-card ul li:last-child {
+            border-bottom: none;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #4F46E5;
+            color: #FFFFFF;
+            padding: 0.75rem 2rem;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .cta-button:hover {
+            background: #4338CA;
+            transform: scale(1.02);
+        }
+        
+        .price-card.featured {
+            border: 2px solid #4F46E5;
+            transform: scale(1.05);
+        }
+        
+        .section-intro {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-intro p {
+            color: #6B7280;
+            font-size: 1.05rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .treatment-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .treatment-card {
+            padding: 2rem;
+            background: #F3F4F6;
+            border-radius: 8px;
+            border-left: 4px solid #4F46E5;
+        }
+        
+        .treatment-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .treatment-card p {
+            color: #6B7280;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        
+        footer {
+            background: #1F2937;
+            color: #FFFFFF;
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 1px solid #374151;
+        }
+        
+        footer p {
+            opacity: 0.7;
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+            
+            .price-card.featured {
+                transform: scale(1);
+            }
+            
+            nav {
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 6 Q 21.5 11 20 16 Q 18.5 21 20 26 Q 21.5 31 20 36" stroke="#1F2937" stroke-width="2" stroke-linecap="round" fill="none"/>
+                    <circle cx="20" cy="10" r="1.5" fill="#1F2937"/>
+                    <circle cx="20" cy="20" r="1.5" fill="#1F2937"/>
+                    <circle cx="20" cy="30" r="1.5" fill="#1F2937"/>
+                </svg>
+                <span class="logo-text">Chiro Scot</span>
+            </a>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="services.html">Services</a>
+                <a href="coaching.html">Coaching</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+    
+    <div class="hero">
+        <div class="hero-content">
+            <h1>Services & Pricing</h1>
+        </div>
+    </div>
+    
+    <section class="section">
+        <div class="section-intro">
+            <h2>Treatment Options</h2>
+            <p>Straightforward pricing. No hidden fees. Book online or call to discuss your needs.</p>
+        </div>
+        
+        <div class="pricing-grid">
+            <div class="price-card">
+                <h3>Initial Consultation</h3>
+                <div class="price">£80</div>
+                <p>Your first visit includes a thorough assessment and treatment plan.</p>
+                <ul>
+                    <li>Full clinical assessment</li>
+                    <li>Diagnosis discussion</li>
+                    <li>Initial treatment</li>
+                    <li>Care plan outlined</li>
+                </ul>
+                <a href="https://east-lothian-chiropractic.au1.cliniko.com/bookings" class="cta-button">Book Now</a>
+            </div>
+            
+            <div class="price-card">
+                <h3>Regular Visit</h3>
+                <div class="price">£50</div>
+                <p>Ongoing treatment sessions designed to progress your care.</p>
+                <ul>
+                    <li>Focused treatment</li>
+                    <li>Progress assessment</li>
+                    <li>Adjustments to plan</li>
+                    <li>Home care advice</li>
+                </ul>
+                <a href="https://east-lothian-chiropractic.au1.cliniko.com/bookings" class="cta-button">Book Now</a>
+            </div>
+            
+            <div class="price-card featured">
+                <h3>10-Visit Package</h3>
+                <div class="price">£400</div>
+                <p>Best value. Lock in savings and commit to your recovery.</p>
+                <ul>
+                    <li>10 visits at £40 each</li>
+                    <li>20% discount vs regular</li>
+                    <li>Valid for 12 weeks</li>
+                    <li>Book in advance</li>
+                </ul>
+                <a href="https://east-lothian-chiropractic.au1.cliniko.com/bookings" class="cta-button">Book Now</a>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section" style="background: #F9FAFB;">
+        <h2>What We Treat</h2>
+        
+        <div class="treatment-cards">
+            <div class="treatment-card">
+                <h3>Acute Back Pain</h3>
+                <p>Recent onset pain in the lower or mid back. We diagnose the cause and provide rapid relief through targeted treatment.</p>
+            </div>
+            <div class="treatment-card">
+                <h3>Chronic Back Pain</h3>
+                <p>Long-standing pain that hasn't resolved. We design a progressive plan to reduce pain and restore function.</p>
+            </div>
+            <div class="treatment-card">
+                <h3>Neck Pain & Tension</h3>
+                <p>Stiffness, tension, or pain in the neck. Often linked to posture or stress. We address the root cause.</p>
